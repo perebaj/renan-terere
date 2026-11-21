@@ -314,6 +314,9 @@ body {
 
 .jukebox-btn {
   appearance: none;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
   cursor: pointer;
   background: var(--leather-umbrage);
   color: var(--parchment-warm);

@@ -1,6 +1,28 @@
 const SIM_WEIGHT = 0.6;
 
+// Tracks sourced from Spotify playlist "OLD TEXAS COWBOY SONGS" (3lwlAD79CzQpdY5ZoC8Xvj), plus Texas Country staples.
+const COWBOY_COUNT = 20;
 const PLAYLIST = [
+  { id: "K16ZNrWRzo0", label: "Ernest Tubb – Waltz Across Texas" },
+  { id: "JQc5gDXQGIs", label: "Roy Rogers – Tumbling Tumbleweeds" },
+  { id: "5zhDJZipPV0", label: "Bob Wills & His Texas Playboys – New San Antonio Rose" },
+  { id: "-JX50rZae2M", label: "Eddy Arnold – Cattle Call" },
+  { id: "E5F-O_19lSI", label: "Gene Autry – Back In the Saddle Again" },
+  { id: "zWm5WErkffQ", label: "Marty Robbins – El Paso" },
+  { id: "4WXYjm74WFI", label: "Hank Williams – I'm So Lonesome I Could Cry" },
+  { id: "qEIBmGZxAhg", label: "Jimmie Rodgers – Blue Yodel (T for Texas)" },
+  { id: "VJeBtHjqJz0", label: "Frankie Laine – Rawhide" },
+  { id: "kE7Ks8ai82o", label: "Asleep At The Wheel – Way Down Texas Way" },
+  { id: "sYQoBDI0DNE", label: "Ernest Tubb – Half My Heart's In Texas" },
+  { id: "-NuX79Ud8zI", label: "Marty Robbins – Big Iron" },
+  { id: "l_9pVRZ0QKw", label: "Tex Ritter – Jingle, Jangle, Jingle" },
+  { id: "vNefwlE1oCg", label: "Moe Bandy – Deep In The Heart Of Texas" },
+  { id: "A-0KHkf5V98", label: "Ernest Tubb – Walkin' The Floor Over You" },
+  { id: "8Z_SOobHOw4", label: "Gene Autry – Don't Fence Me In" },
+  { id: "tTuHC8XM0P0", label: "Willie Nelson – Texas In My Soul" },
+  { id: "fvcBktt6V7k", label: "Ray Price – Home In San Antone" },
+  { id: "ANeSmrTf26U", label: "Sons of the Pioneers – Riders In The Sky" },
+  { id: "uzzAbOrCce4", label: "Gene Autry – Lone Star Moon" },
   { id: "wtVeDaZxAXo", label: "George Strait – Amarillo By Morning" },
   { id: "QuJroujjYDk", label: "George Strait – All My Ex's Live in Texas" },
   { id: "xvZeYDBY4fw", label: "Waylon Jennings – Luckenbach, Texas" },
@@ -74,7 +96,7 @@ let ytPlayer = null;
 let playerReady = false;
 let pendingAutoplay = false;
 let isPlaying = false;
-let currentTrackIndex = Math.floor(Math.random() * PLAYLIST.length);
+let currentTrackIndex = Math.floor(Math.random() * COWBOY_COUNT);
 let failedTracks = new Set();
 
 let counts = { sim: 0, nao: 0 };
