@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Renan Peliçari já fez o tereré dele hoje?</title>
+  <meta name="description" content="Consulte o destino e descubra se o último gângster do mundo e do universo já preparou o tereré de hoje.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Renan Peliçari já fez o tereré dele hoje?">
+  <meta property="og:description" content="60% de fé na guampa gelada, 40% de seca no Texas. Clique para tirar a prova ao som de country texano.">
+  <meta property="og:image" content="/assets/renan-sim.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell" data-state="idle">
+    <main class="stage" aria-live="polite">
+      <figure class="portrait-frame" id="portraitFrame">
+        <span class="tack tack-tl" aria-hidden="true"></span>
+        <span class="tack tack-tr" aria-hidden="true"></span>
+        <span class="tack tack-bl" aria-hidden="true"></span>
+        <span class="tack tack-br" aria-hidden="true"></span>
+
+        <div class="portrait-viewport">
+          <img
+            id="portraitImg"
+            class="portrait-img"
+            src="./assets/renan-base.jpg"
+            alt="Retrato de Renan Peliçari sentado em uma poltrona de couro na biblioteca"
+            width="896"
+            height="1200"
+          >
+          <div class="shuffle-veil" id="shuffleVeil" aria-hidden="true">
+            <span class="shuffle-word" id="shuffleWord">Consultando a térmica...</span>
+          </div>
+        </div>
+
+        <figcaption class="portrait-caption" id="portraitCaption">
+          Renan Peliçari, o último gângster do mundo e do universo.
+        </figcaption>
+      </figure>
+
+      <section class="editorial">
+        <h1 class="question-title" id="mainHeading">
+          Renan Peliçari já fez o tereré dele hoje?
+        </h1>
+
+        <div class="verdict-box" id="verdictBox">
+          <p class="verdict-stamp" id="verdictStamp" hidden></p>
+          <p class="verdict-copy" id="verdictCopy">
+            A matemática da fronteira dá 60% de chance para a guampa trincando de gelo e 40% para a seca braba. Aperte para tirar a prova e ligar o som do saloon.
+          </p>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="draw-button" id="drawButton">
+            Tirar a prova de hoje
+          </button>
+          <p class="tally" id="sessionTally" hidden></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="jukebox" aria-label="Vitrola texana">
+      <div class="jukebox-now">
+        <span class="vinyl-dot" id="vinylDot" aria-hidden="true"></span>
+        <div class="jukebox-text">
+          <span class="jukebox-title" id="trackStatus">Vitrola do Texas pronta</span>
+          <label class="sr-only" for="trackSelect">Escolher música texana</label>
+          <select id="trackSelect" class="track-select"></select>
+        </div>
+      </div>
+
+      <div class="jukebox-controls">
+        <button type="button" class="jukebox-btn" id="playPauseBtn">
+          Tocar música
+        </button>
+        <button type="button" class="jukebox-btn" id="nextTrackBtn">
+          Próxima moda
+        </button>
+        <button type="button" class="jukebox-btn jukebox-btn-subtle" id="toggleVideoBtn" aria-expanded="false">
+          Mostrar clipe
+        </button>
+      </div>
+
+      <div class="player-drawer" id="playerDrawer">
+        <div id="ytPlayer"></div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
