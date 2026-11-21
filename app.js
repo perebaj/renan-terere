@@ -12,45 +12,45 @@ const PLAYLIST = [
 
 const SIM_VERDICTS = [
   {
-    stamp: "Sim, o tereré já está trincando.",
-    copy: "Erva batida, bomba alinhada e guampa suando frio na biblioteca. Pode encostar com a cadeira que o homem já cumpriu o ritual.",
-    caption: "Chapéu na cabeça e guampa gelada na mão: o último gângster jamais falha.",
+    stamp: "Sim, o tereré já está trincando! 🥶🧊",
+    copy: "Erva batida, bomba alinhada e guampa suando frio na biblioteca 🧉❄️. Pode encostar com a cadeira que o homem já cumpriu o ritual.",
+    caption: "Chapéu na cabeça e guampa gelada na mão: o último gângster jamais falha. 🤠🧉",
   },
   {
-    stamp: "Sim, já rolou tereré hoje.",
-    copy: "A água gelada desceu antes mesmo do sol esquentar no Texas. Mais um dia normal na rotina da fronteira.",
-    caption: "KING ROP devidamente hidratado no comando do saloon.",
+    stamp: "Sim, já rolou tereré hoje! 🧉🤠",
+    copy: "A água gelada desceu antes mesmo do sol esquentar no Texas 🧊☀️. Mais um dia normal na rotina da fronteira.",
+    caption: "KING ROP devidamente hidratado no comando do saloon. 🤠❄️",
   },
   {
-    stamp: "Com certeza já fez.",
-    copy: "Térmica cheia, hortelã no ponto e moral intacta. Duvidar do tereré do homem a essa altura do dia é perder aposta.",
-    caption: "Tradição mantida pelo último gângster do mundo e do universo.",
+    stamp: "Com certeza já fez! 🥶🌿",
+    copy: "Térmica cheia, hortelã no ponto e moral intacta 🧊🧉. Duvidar do tereré do homem a essa altura do dia é perder aposta.",
+    caption: "Tradição mantida pelo último gângster do mundo e do universo. ☝🏻👊🏻",
   },
 ];
 
 const NAO_VERDICTS = [
   {
-    stamp: "Ainda não saiu o tereré hoje.",
-    copy: "Guampa emborcada na mesa, bomba seca e silêncio pesado no escritório. Nem o saloon acreditou nessa cena.",
-    caption: "Olhar distante de quem ainda não ouviu a térmica abrir hoje.",
+    stamp: "Ainda não saiu o tereré hoje... 🏜️😔",
+    copy: "Guampa emborcada na mesa, bomba seca e silêncio pesado no escritório 🥀. Nem o saloon acreditou nessa cena.",
+    caption: "Olhar distante de quem ainda não ouviu a térmica abrir hoje. 💀🏜️",
   },
   {
-    stamp: "Não fez, seca braba no Texas.",
-    copy: "Nem sinal de gelo ou erva fresca até agora. Alguém precisa levar um saco de gelo urgente para salvar a tarde do homem.",
-    caption: "A cuia segue vazia na madeira escura da biblioteca.",
+    stamp: "Não fez, seca braba no Texas! 🌵🥵",
+    copy: "Nem sinal de gelo ou erva fresca até agora 🏜️. Alguém precisa levar um saco de gelo urgente para salvar a tarde do homem 🧊🆘.",
+    caption: "A cuia segue vazia na madeira escura da biblioteca. 🥀",
   },
   {
-    stamp: "Hoje ainda não teve tereré.",
-    copy: "Contra todas as expectativas da fronteira, a garrafa térmica segue fechada. Vale girar de novo para ver se o destino muda.",
-    caption: "Um raro momento de sede na história do último gângster.",
+    stamp: "Hoje ainda não teve tereré... 😢🌵",
+    copy: "Contra todas as expectativas da fronteira, a garrafa térmica segue fechada 🔒🥵. Vale girar de novo para ver se o destino muda.",
+    caption: "Um raro momento de sede na história do último gângster. 🏜️",
   },
 ];
 
 const SHUFFLE_LINES = [
-  "Sacudindo a garrafa térmica...",
-  "Ouvindo se a bomba roncou...",
-  "Conferindo o estoque de gelo...",
-  "Consultando os ventos do Texas...",
+  "Sacudindo a garrafa térmica... 🧊",
+  "Ouvindo se a bomba roncou... 🧉",
+  "Conferindo o estoque de gelo... 🥶",
+  "Consultando os ventos do Texas... 🤠🌵",
 ];
 
 const shell = document.querySelector(".page-shell");
@@ -191,9 +191,9 @@ window.onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
         const YTState = window.YT.PlayerState;
         if (event.data === YTState.PLAYING) {
           failedTracks.clear();
-          updateMusicUI(true, "Tocando no saloon");
+          updateMusicUI(true, "🤠 Tocando no saloon");
         } else if (event.data === YTState.PAUSED) {
-          updateMusicUI(false, "Vitrola pausada");
+          updateMusicUI(false, "⏸️ Vitrola pausada");
         } else if (event.data === YTState.ENDED) {
           loadTrack(currentTrackIndex + 1, true);
         }
@@ -252,9 +252,9 @@ function runDraw() {
 
     verdictStamp.hidden = false;
     sessionTally.hidden = false;
-    sessionTally.textContent = `Sorteios nesta sessão: ${counts.sim} sim e ${counts.nao} não.`;
+    sessionTally.textContent = `🧉 Placar desta sessão: ${counts.sim} sim e ${counts.nao} não.`;
 
-    drawButton.textContent = "Sortear de novo";
+    drawButton.textContent = "Sortear de novo 🎲";
     drawButton.disabled = false;
     isDrawing = false;
   }, suspenseMs);
