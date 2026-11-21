@@ -68,38 +68,63 @@
       </section>
     </main>
 
-    <footer class="jukebox" aria-label="Vitrola texana">
-      <div class="jukebox-now">
-        <span class="vinyl-dot" id="vinylDot" aria-hidden="true"></span>
-        <div class="jukebox-text">
-          <span class="jukebox-title" id="trackStatus">🤠 Vitrola do Texas pronta</span>
-          <label class="sr-only" for="trackSelect">Escolher música texana</label>
-          <select id="trackSelect" class="track-select"></select>
+    <footer class="site-footer">
+      <section class="jukebox" aria-label="Vitrola texana">
+        <div class="jukebox-now">
+          <span class="vinyl-dot" id="vinylDot" aria-hidden="true"></span>
+          <div class="jukebox-text">
+            <span class="jukebox-title" id="trackStatus">🤠 Vitrola do Texas pronta</span>
+            <label class="sr-only" for="trackSelect">Escolher música texana</label>
+            <select id="trackSelect" class="track-select"></select>
+          </div>
         </div>
-      </div>
 
-      <div class="jukebox-controls">
-        <button type="button" class="jukebox-btn" id="playPauseBtn">
-          Tocar música
-        </button>
-        <button type="button" class="jukebox-btn" id="nextTrackBtn">
-          Próxima moda
-        </button>
-        <button type="button" class="jukebox-btn jukebox-btn-subtle" id="toggleVideoBtn" aria-expanded="false">
-          Mostrar clipe
-        </button>
-        <a
-          class="jukebox-btn jukebox-btn-subtle"
-          href="https://open.spotify.com/playlist/3lwlAD79CzQpdY5ZoC8Xvj"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Spotify
-        </a>
-      </div>
+        <div class="jukebox-controls">
+          <button type="button" class="jukebox-btn" id="playPauseBtn">
+            Tocar música
+          </button>
+          <button type="button" class="jukebox-btn" id="nextTrackBtn">
+            Próxima moda
+          </button>
+          <button type="button" class="jukebox-btn jukebox-btn-subtle" id="toggleVideoBtn" aria-expanded="false">
+            Mostrar clipe
+          </button>
+          <a
+            class="jukebox-btn jukebox-btn-subtle"
+            href="https://open.spotify.com/playlist/3lwlAD79CzQpdY5ZoC8Xvj"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Spotify
+          </a>
+        </div>
 
-      <div class="player-drawer" id="playerDrawer">
-        <div id="ytPlayer"></div>
+        <div class="player-drawer" id="playerDrawer">
+          <div id="ytPlayer"></div>
+        </div>
+      </section>
+
+      <div class="colophon">
+        <nav class="rop-socials" aria-label="Redes sociais do KING ROP">
+          <span class="rop-socials-label">Redes do KING ROP:</span>
+          <a href="https://www.instagram.com/_renanpelicari/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            Instagram
+          </a>
+          <a href="https://www.linkedin.com/in/renanpelicari1/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            LinkedIn
+          </a>
+          <a href="https://x.com/_renanpelicari" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+            X
+          </a>
+        </nav>
+
+        <p class="author-credit">
+          Feito com ❤️ por
+          <a href="https://x.com/jj_neno" target="_blank" rel="noopener noreferrer">@jj_neno</a>
+        </p>
       </div>
     </footer>
   </div>

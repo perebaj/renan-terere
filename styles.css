@@ -248,6 +248,12 @@ body {
   color: var(--parchment-muted);
 }
 
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
 .jukebox {
   position: relative;
   border-top: 1px solid var(--leather-edge);
@@ -337,11 +343,55 @@ body {
   color: var(--parchment-muted);
 }
 
+.colophon {
+  border-top: 1px solid rgba(58, 41, 29, 0.65);
+  padding-top: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem 1.5rem;
+  font-size: 0.9rem;
+  color: var(--parchment-muted);
+}
+
+.rop-socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+
+.rop-socials-label {
+  color: var(--parchment-muted);
+}
+
+.rop-socials a,
+.author-credit a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--parchment-warm);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.rop-socials a:hover,
+.author-credit a:hover {
+  color: var(--brass-bright);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.author-credit {
+  margin: 0;
+}
+
 /* Keep the iframe rendered with non-zero dimensions so mobile browsers do not throttle audio playback. */
 .player-drawer {
   position: fixed;
   right: 1rem;
-  bottom: 4.75rem;
+  bottom: 6.75rem;
   width: 280px;
   height: 158px;
   border: 1px solid var(--leather-edge);
