@@ -21,6 +21,14 @@
 </head>
 <body>
   <div class="page-shell" data-state="idle">
+    <header class="top-bar">
+      <div class="lang-switch" role="group" aria-label="Idioma / Language / Idioma">
+        <button type="button" class="lang-btn is-active" data-lang="pt-BR" aria-pressed="true">PT</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+      </div>
+    </header>
+
     <main class="stage" aria-live="polite">
       <figure class="portrait-frame" id="portraitFrame">
         <span class="tack tack-tl" aria-hidden="true"></span>
@@ -69,12 +77,12 @@
     </main>
 
     <footer class="site-footer">
-      <section class="jukebox" aria-label="Vitrola texana">
+      <section class="jukebox" id="jukeboxSection" aria-label="Vitrola texana">
         <div class="jukebox-now">
           <span class="vinyl-dot" id="vinylDot" aria-hidden="true"></span>
           <div class="jukebox-text">
             <span class="jukebox-title" id="trackStatus">🤠 Vitrola do Texas pronta</span>
-            <label class="sr-only" for="trackSelect">Escolher música texana</label>
+            <label class="sr-only" id="trackSelectLabel" for="trackSelect">Escolher música texana</label>
             <select id="trackSelect" class="track-select"></select>
           </div>
         </div>
@@ -105,8 +113,8 @@
       </section>
 
       <div class="colophon">
-        <nav class="rop-socials" aria-label="Redes sociais do KING ROP">
-          <span class="rop-socials-label">Redes do KING ROP:</span>
+        <nav class="rop-socials" id="socialsNav" aria-label="Redes sociais do KING ROP">
+          <span class="rop-socials-label" id="socialsLabel">Redes do KING ROP:</span>
           <a href="https://www.instagram.com/_renanpelicari/" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             Instagram
@@ -122,7 +130,7 @@
         </nav>
 
         <p class="author-credit">
-          Feito com ❤️ por
+          <span id="authorCreditPrefix">Feito com ❤️ por</span>
           <a href="https://x.com/jj_neno" target="_blank" rel="noopener noreferrer">@jj_neno</a>
         </p>
       </div>

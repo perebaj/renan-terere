@@ -1,4 +1,6 @@
 const SIM_WEIGHT = 0.6;
+const DEFAULT_LANG = "pt-BR";
+const STORAGE_LANG_KEY = "kingrop_lang";
 
 // Tracks sourced from Spotify playlist "OLD TEXAS COWBOY SONGS" (3lwlAD79CzQpdY5ZoC8Xvj), plus Texas Country staples.
 const COWBOY_COUNT = 20;
@@ -32,50 +34,224 @@ const PLAYLIST = [
   { id: "d05tQrhNMkA", label: "Brooks & Dunn – Boot Scootin' Boogie" },
 ];
 
-const SIM_VERDICTS = [
-  {
-    stamp: "Sim, o tereré já está trincando! 🥶🧊",
-    copy: "Erva batida, bomba alinhada e guampa suando frio na biblioteca 🧉❄️. Pode encostar com a cadeira que o homem já cumpriu o ritual.",
-    caption: "Chapéu na cabeça e guampa gelada na mão: o último gângster jamais falha. 🤠🧉",
+const I18N = {
+  "pt-BR": {
+    pageTitle: "KING ROP já fez o tereré dele hoje?",
+    heading: "KING ROP já fez o tereré dele hoje? 🧉🤠",
+    idleCopy:
+      "Será que a guampa já está trincando de gelo 🥶 ou hoje deu seca na fronteira 🌵? Aperte para tirar a prova e ligar o som do saloon.",
+    idleCaption: "KING ROP, o último gângster do mundo e do universo. ☝🏻👊🏻👏🏻",
+    idleAlt: "Retrato de KING ROP sentado em uma poltrona de couro na biblioteca",
+    simAlt: "KING ROP de chapéu texano segurando uma guampa de tereré gelada",
+    naoAlt: "KING ROP cabisbaixo com a cuia de tereré vazia emborcada na mesa",
+    drawIdle: "Tirar a prova de hoje 🎲",
+    drawAgain: "Sortear de novo 🎲",
+    tally: (sim, nao) => `🧉 Placar desta sessão: ${sim} sim e ${nao} não.`,
+    jukeboxAria: "Vitrola texana",
+    trackSelectLabel: "Escolher música texana",
+    playMusic: "Tocar música",
+    pauseMusic: "Pausar música",
+    nextTrack: "Próxima moda",
+    showVideo: "Mostrar clipe",
+    hideVideo: "Ocultar clipe",
+    socialsAria: "Redes sociais do KING ROP",
+    socialsLabel: "Redes do KING ROP:",
+    madeBy: "Feito com ❤️ por",
+    musicStatus: {
+      ready: "🤠 Vitrola do Texas pronta",
+      warming: "Aquecendo a vitrola...",
+      loading: "Carregando vitrola...",
+      playing: "🤠 Tocando no saloon",
+      paused: "⏸️ Vitrola pausada",
+      unavailable: "Playlist indisponível nesta rede",
+    },
+    shuffle: [
+      "Sacudindo a garrafa térmica... 🧊",
+      "Ouvindo se a bomba roncou... 🧉",
+      "Conferindo o estoque de gelo... 🥶",
+      "Consultando os ventos do Texas... 🤠🌵",
+    ],
+    sim: [
+      {
+        stamp: "Sim, o tereré já está trincando! 🥶🧊",
+        copy: "Erva batida, bomba alinhada e guampa suando frio na biblioteca 🧉❄️. Pode encostar com a cadeira que o homem já cumpriu o ritual.",
+        caption: "Chapéu na cabeça e guampa gelada na mão: o último gângster jamais falha. 🤠🧉",
+      },
+      {
+        stamp: "Sim, já rolou tereré hoje! 🧉🤠",
+        copy: "A água gelada desceu antes mesmo do sol esquentar no Texas 🧊☀️. Mais um dia normal na rotina da fronteira.",
+        caption: "KING ROP devidamente hidratado no comando do saloon. 🤠❄️",
+      },
+      {
+        stamp: "Com certeza já fez! 🥶🌿",
+        copy: "Térmica cheia, hortelã no ponto e moral intacta 🧊🧉. Duvidar do tereré do homem a essa altura do dia é perder aposta.",
+        caption: "Tradição mantida pelo último gângster do mundo e do universo. ☝🏻👊🏻",
+      },
+    ],
+    nao: [
+      {
+        stamp: "Ainda não saiu o tereré hoje... 🏜️😔",
+        copy: "Guampa emborcada na mesa, bomba seca e silêncio pesado no escritório 🥀. Nem o saloon acreditou nessa cena.",
+        caption: "Olhar distante de quem ainda não ouviu a térmica abrir hoje. 💀🏜️",
+      },
+      {
+        stamp: "Não fez, seca braba no Texas! 🌵🥵",
+        copy: "Nem sinal de gelo ou erva fresca até agora 🏜️. Alguém precisa levar um saco de gelo urgente para salvar a tarde do homem 🧊🆘.",
+        caption: "A cuia segue vazia na madeira escura da biblioteca. 🥀",
+      },
+      {
+        stamp: "Hoje ainda não teve tereré... 😢🌵",
+        copy: "Contra todas as expectativas da fronteira, a garrafa térmica segue fechada 🔒🥵. Vale girar de novo para ver se o destino muda.",
+        caption: "Um raro momento de sede na história do último gângster. 🏜️",
+      },
+    ],
   },
-  {
-    stamp: "Sim, já rolou tereré hoje! 🧉🤠",
-    copy: "A água gelada desceu antes mesmo do sol esquentar no Texas 🧊☀️. Mais um dia normal na rotina da fronteira.",
-    caption: "KING ROP devidamente hidratado no comando do saloon. 🤠❄️",
+  en: {
+    pageTitle: "Has KING ROP made his tereré today?",
+    heading: "Has KING ROP made his tereré today? 🧉🤠",
+    idleCopy:
+      "Is that horn cup already freezing cold 🥶 or did a West Texas drought hit the study today 🌵? Hit the button to find out and fire up the saloon jukebox.",
+    idleCaption: "KING ROP, the last gangster in the world and the universe. ☝🏻👊🏻👏🏻",
+    idleAlt: "Portrait of KING ROP sitting in a leather library armchair",
+    simAlt: "KING ROP wearing a Stetson cowboy hat and holding a frosty cup of tereré",
+    naoAlt: "KING ROP looking downcast with an empty tereré cup upside down on the desk",
+    drawIdle: "Check today's tereré 🎲",
+    drawAgain: "Draw again 🎲",
+    tally: (sim, nao) => `🧉 Session tally: ${sim} yes and ${nao} no.`,
+    jukeboxAria: "Texas jukebox",
+    trackSelectLabel: "Pick a Texas country song",
+    playMusic: "Play music",
+    pauseMusic: "Pause music",
+    nextTrack: "Next track",
+    showVideo: "Show video",
+    hideVideo: "Hide video",
+    socialsAria: "KING ROP social links",
+    socialsLabel: "KING ROP's socials:",
+    madeBy: "Made with ❤️ by",
+    musicStatus: {
+      ready: "🤠 Texas jukebox ready",
+      warming: "Warming up the jukebox...",
+      loading: "Loading jukebox...",
+      playing: "🤠 Playing in the saloon",
+      paused: "⏸️ Jukebox paused",
+      unavailable: "Playlist unavailable on this network",
+    },
+    shuffle: [
+      "Shaking the ice thermos... 🧊",
+      "Listening for the silver straw... 🧉",
+      "Checking the ice supply... 🥶",
+      "Reading the West Texas wind... 🤠🌵",
+    ],
+    sim: [
+      {
+        stamp: "Yes, the tereré is ice-cold! 🥶🧊",
+        copy: "Fresh yerba packed, metal straw set, and the cup sweating cold in the library 🧉❄️. Pull up a chair—the boss has honored the ritual.",
+        caption: "Stetson on and frosty cup in hand: the last gangster never misses. 🤠🧉",
+      },
+      {
+        stamp: "Yep, today's tereré is served! 🧉🤠",
+        copy: "Ice water hit the yerba before the Texas sun even warmed the porch 🧊☀️. Just another day of frontier discipline.",
+        caption: "KING ROP properly hydrated and running the saloon. 🤠❄️",
+      },
+      {
+        stamp: "Without a doubt, he made it! 🥶🌿",
+        copy: "Thermos full, mint crisp, and composure intact 🧊🧉. Betting against this man's tereré is easy money lost.",
+        caption: "Tradition upheld by the last gangster in the world and the universe. ☝🏻👊🏻",
+      },
+    ],
+    nao: [
+      {
+        stamp: "No tereré yet today... 🏜️😔",
+        copy: "Cup turned upside down on the desk, dry straw, and heavy silence in the study 🥀. Even the saloon went quiet.",
+        caption: "The thousand-yard stare of a man whose thermos hasn't opened yet. 💀🏜️",
+      },
+      {
+        stamp: "Not yet—rough drought in Texas! 🌵🥵",
+        copy: "No sign of ice or fresh yerba so far 🏜️. Somebody rush a bag of ice over to save the man's afternoon 🧊🆘.",
+        caption: "The cup sits dry on the dark mahogany desk. 🥀",
+      },
+      {
+        stamp: "Still no tereré today... 😢🌵",
+        copy: "Against every frontier expectation, the thermos remains sealed shut 🔒🥵. Spin again and see if fate turns around.",
+        caption: "A rare moment of thirst in the history of the last gangster. 🏜️",
+      },
+    ],
   },
-  {
-    stamp: "Com certeza já fez! 🥶🌿",
-    copy: "Térmica cheia, hortelã no ponto e moral intacta 🧊🧉. Duvidar do tereré do homem a essa altura do dia é perder aposta.",
-    caption: "Tradição mantida pelo último gângster do mundo e do universo. ☝🏻👊🏻",
+  es: {
+    pageTitle: "¿KING ROP ya preparó su tereré hoy?",
+    heading: "¿KING ROP ya preparó su tereré hoy? 🧉🤠",
+    idleCopy:
+      "¿La guampa ya está escarchada de frío 🥶 o pegó la sequía en la frontera 🌵? Toca el botón para salir de dudas y encender la rockola del saloon.",
+    idleCaption: "KING ROP, el último gánster del mundo y del universo. ☝🏻👊🏻👏🏻",
+    idleAlt: "Retrato de KING ROP sentado en un sillón de cuero en la biblioteca",
+    simAlt: "KING ROP con sombrero tejano sosteniendo una guampa de tereré bien fría",
+    naoAlt: "KING ROP cabizbajo con la guampa de tereré vacía boca abajo sobre el escritorio",
+    drawIdle: "Probar la suerte de hoy 🎲",
+    drawAgain: "Sortear de nuevo 🎲",
+    tally: (sim, nao) => `🧉 Marcador de esta sesión: ${sim} sí y ${nao} no.`,
+    jukeboxAria: "Rockola tejana",
+    trackSelectLabel: "Elegir canción tejana",
+    playMusic: "Poner música",
+    pauseMusic: "Pausar música",
+    nextTrack: "Siguiente tema",
+    showVideo: "Mostrar video",
+    hideVideo: "Ocultar video",
+    socialsAria: "Redes sociales de KING ROP",
+    socialsLabel: "Redes de KING ROP:",
+    madeBy: "Hecho con ❤️ por",
+    musicStatus: {
+      ready: "🤠 Rockola de Texas lista",
+      warming: "Calentando la rockola...",
+      loading: "Cargando rockola...",
+      playing: "🤠 Sonando en el saloon",
+      paused: "⏸️ Rockola en pausa",
+      unavailable: "Playlist no disponible en esta red",
+    },
+    shuffle: [
+      "Sacudiendo el termo con hielo... 🧊",
+      "Escuchando si roncó la bombilla... 🧉",
+      "Revisando la reserva de hielo... 🥶",
+      "Consultando los vientos de Texas... 🤠🌵",
+    ],
+    sim: [
+      {
+        stamp: "¡Sí, el tereré ya está helado! 🥶🧊",
+        copy: "Yerba lista, bombilla firme y la guampa sudando frío en la biblioteca 🧉❄️. Acerca una silla, que el hombre ya cumplió el ritual.",
+        caption: "Sombrero puesto y guampa helada en mano: el último gánster nunca falla. 🤠🧉",
+      },
+      {
+        stamp: "¡Sí, hoy ya salió tereré! 🧉🤠",
+        copy: "El agua helada bajó antes de que calentara el sol en Texas 🧊☀️. Otro día normal en la rutina de la frontera.",
+        caption: "KING ROP bien hidratado al mando del saloon. 🤠❄️",
+      },
+      {
+        stamp: "¡Seguro que ya lo armó! 🥶🌿",
+        copy: "Termo lleno, menta en su punto y presencia intacta 🧊🧉. Dudar del tereré del hombre a esta hora es perder la apuesta.",
+        caption: "Tradición intacta del último gánster del mundo y del universo. ☝🏻👊🏻",
+      },
+    ],
+    nao: [
+      {
+        stamp: "Todavía no salió el tereré hoy... 🏜️😔",
+        copy: "Guampa boca abajo en la mesa, bombilla seca y silencio pesado en el estudio 🥀. Ni en el saloon lo podían creer.",
+        caption: "La mirada perdida de quien aún no escuchó abrir el termo hoy. 💀🏜️",
+      },
+      {
+        stamp: "¡No hizo, sequía brava en Texas! 🌵🥵",
+        copy: "Ni rastro de hielo o yerba fresca hasta ahora 🏜️. Que alguien lleve una bolsa de hielo urgente para salvarle la tarde 🧊🆘.",
+        caption: "La guampa sigue vacía sobre la madera oscura de la biblioteca. 🥀",
+      },
+      {
+        stamp: "Hoy todavía no hubo tereré... 😢🌵",
+        copy: "Contra todo pronóstico de la frontera, el termo sigue cerrado 🔒🥵. Tira otra vez a ver si cambia el destino.",
+        caption: "Un raro momento de sed en la historia del último gánster. 🏜️",
+      },
+    ],
   },
-];
-
-const NAO_VERDICTS = [
-  {
-    stamp: "Ainda não saiu o tereré hoje... 🏜️😔",
-    copy: "Guampa emborcada na mesa, bomba seca e silêncio pesado no escritório 🥀. Nem o saloon acreditou nessa cena.",
-    caption: "Olhar distante de quem ainda não ouviu a térmica abrir hoje. 💀🏜️",
-  },
-  {
-    stamp: "Não fez, seca braba no Texas! 🌵🥵",
-    copy: "Nem sinal de gelo ou erva fresca até agora 🏜️. Alguém precisa levar um saco de gelo urgente para salvar a tarde do homem 🧊🆘.",
-    caption: "A cuia segue vazia na madeira escura da biblioteca. 🥀",
-  },
-  {
-    stamp: "Hoje ainda não teve tereré... 😢🌵",
-    copy: "Contra todas as expectativas da fronteira, a garrafa térmica segue fechada 🔒🥵. Vale girar de novo para ver se o destino muda.",
-    caption: "Um raro momento de sede na história do último gângster. 🏜️",
-  },
-];
-
-const SHUFFLE_LINES = [
-  "Sacudindo a garrafa térmica... 🧊",
-  "Ouvindo se a bomba roncou... 🧉",
-  "Conferindo o estoque de gelo... 🥶",
-  "Consultando os ventos do Texas... 🤠🌵",
-];
+};
 
 const shell = document.querySelector(".page-shell");
+const mainHeading = document.getElementById("mainHeading");
 const portraitImg = document.getElementById("portraitImg");
 const portraitCaption = document.getElementById("portraitCaption");
 const shuffleWord = document.getElementById("shuffleWord");
@@ -84,6 +260,8 @@ const verdictCopy = document.getElementById("verdictCopy");
 const drawButton = document.getElementById("drawButton");
 const sessionTally = document.getElementById("sessionTally");
 
+const jukeboxSection = document.getElementById("jukeboxSection");
+const trackSelectLabel = document.getElementById("trackSelectLabel");
 const trackSelect = document.getElementById("trackSelect");
 const trackStatus = document.getElementById("trackStatus");
 const vinylDot = document.getElementById("vinylDot");
@@ -92,21 +270,51 @@ const nextTrackBtn = document.getElementById("nextTrackBtn");
 const toggleVideoBtn = document.getElementById("toggleVideoBtn");
 const playerDrawer = document.getElementById("playerDrawer");
 
+const socialsNav = document.getElementById("socialsNav");
+const socialsLabel = document.getElementById("socialsLabel");
+const authorCreditPrefix = document.getElementById("authorCreditPrefix");
+const langButtons = document.querySelectorAll(".lang-btn");
+
+let currentLang = resolveInitialLang();
 let ytPlayer = null;
 let playerReady = false;
 let pendingAutoplay = false;
 let isPlaying = false;
+let musicStateKey = "ready";
 let currentTrackIndex = Math.floor(Math.random() * COWBOY_COUNT);
 let failedTracks = new Set();
 
 let counts = { sim: 0, nao: 0 };
-let lastVerdictText = "";
+let lastOutcome = null;
+let lastVerdictIndex = { sim: -1, nao: -1 };
+let activeShuffleIndex = 0;
 let isDrawing = false;
 
 // Preload both outcome portraits so the reveal never flashes a half-loaded image.
 for (const src of ["./assets/renan-sim.jpg", "./assets/renan-nao.jpg"]) {
   const img = new Image();
   img.src = src;
+}
+
+function resolveInitialLang() {
+  const params = new URLSearchParams(window.location.search);
+  const queryLang = params.get("lang");
+  if (queryLang && I18N[queryLang]) {
+    return queryLang;
+  }
+  try {
+    const saved = window.localStorage.getItem(STORAGE_LANG_KEY);
+    if (saved && I18N[saved]) {
+      return saved;
+    }
+  } catch (_) {
+    // Ignore storage access errors in restricted webviews.
+  }
+  return DEFAULT_LANG;
+}
+
+function t() {
+  return I18N[currentLang] || I18N[DEFAULT_LANG];
 }
 
 function randomUnit() {
@@ -118,10 +326,12 @@ function randomUnit() {
   return Math.random();
 }
 
-function pickVerdict(pool) {
-  const candidates = pool.filter((item) => item.stamp !== lastVerdictText);
-  const chosen = candidates[Math.floor(randomUnit() * candidates.length)] || pool[0];
-  lastVerdictText = chosen.stamp;
+function pickVerdictIndex(type) {
+  const pool = t()[type];
+  const prev = lastVerdictIndex[type];
+  const indices = pool.map((_, idx) => idx).filter((idx) => idx !== prev);
+  const chosen = indices[Math.floor(randomUnit() * indices.length)] ?? 0;
+  lastVerdictIndex[type] = chosen;
   return chosen;
 }
 
@@ -137,12 +347,88 @@ function populatePlaylistSelect() {
   });
 }
 
-function updateMusicUI(playing, statusText) {
+function renderMusicStatus() {
+  const dict = t();
+  vinylDot.classList.toggle("is-playing", isPlaying);
+  playPauseBtn.textContent = isPlaying ? dict.pauseMusic : dict.playMusic;
+  trackStatus.textContent = dict.musicStatus[musicStateKey] || dict.musicStatus.ready;
+}
+
+function updateMusicUI(playing, stateKey) {
   isPlaying = playing;
-  vinylDot.classList.toggle("is-playing", playing);
-  playPauseBtn.textContent = playing ? "Pausar música" : "Tocar música";
-  if (statusText) {
-    trackStatus.textContent = statusText;
+  if (stateKey) {
+    musicStateKey = stateKey;
+  }
+  renderMusicStatus();
+}
+
+function renderOutcomeOrIdle() {
+  const dict = t();
+  if (!lastOutcome) {
+    portraitImg.alt = dict.idleAlt;
+    portraitCaption.textContent = dict.idleCaption;
+    verdictStamp.hidden = true;
+    verdictCopy.textContent = dict.idleCopy;
+    drawButton.textContent = dict.drawIdle;
+    sessionTally.hidden = true;
+    return;
+  }
+
+  const verdict = dict[lastOutcome.type][lastOutcome.index];
+  portraitImg.alt = lastOutcome.type === "sim" ? dict.simAlt : dict.naoAlt;
+  portraitCaption.textContent = verdict.caption;
+  verdictStamp.textContent = verdict.stamp;
+  verdictStamp.hidden = false;
+  verdictCopy.textContent = verdict.copy;
+  drawButton.textContent = dict.drawAgain;
+  sessionTally.hidden = false;
+  sessionTally.textContent = dict.tally(counts.sim, counts.nao);
+}
+
+function applyLanguage(lang, persist = true) {
+  if (!I18N[lang]) {
+    return;
+  }
+  currentLang = lang;
+  const dict = t();
+
+  document.documentElement.lang = lang;
+  document.title = dict.pageTitle;
+  mainHeading.textContent = dict.heading;
+  shuffleWord.textContent = dict.shuffle[activeShuffleIndex % dict.shuffle.length];
+
+  jukeboxSection.setAttribute("aria-label", dict.jukeboxAria);
+  trackSelectLabel.textContent = dict.trackSelectLabel;
+  nextTrackBtn.textContent = dict.nextTrack;
+  const drawerOpen = playerDrawer.classList.contains("is-open");
+  toggleVideoBtn.textContent = drawerOpen ? dict.hideVideo : dict.showVideo;
+
+  socialsNav.setAttribute("aria-label", dict.socialsAria);
+  socialsLabel.textContent = dict.socialsLabel;
+  authorCreditPrefix.textContent = dict.madeBy;
+
+  langButtons.forEach((btn) => {
+    const active = btn.dataset.lang === lang;
+    btn.classList.toggle("is-active", active);
+    btn.setAttribute("aria-pressed", String(active));
+  });
+
+  renderMusicStatus();
+  renderOutcomeOrIdle();
+
+  if (persist) {
+    try {
+      window.localStorage.setItem(STORAGE_LANG_KEY, lang);
+    } catch (_) {
+      // Ignore storage write errors.
+    }
+    const url = new URL(window.location.href);
+    if (lang === DEFAULT_LANG) {
+      url.searchParams.delete("lang");
+    } else {
+      url.searchParams.set("lang", lang);
+    }
+    window.history.replaceState({}, "", url);
   }
 }
 
@@ -150,7 +436,8 @@ function updateMusicUI(playing, statusText) {
 function startMusicFromGesture() {
   if (!playerReady || !ytPlayer) {
     pendingAutoplay = true;
-    trackStatus.textContent = "Aquecendo a vitrola...";
+    musicStateKey = "warming";
+    renderMusicStatus();
     return;
   }
   if (!isPlaying) {
@@ -182,7 +469,7 @@ function loadTrack(index, shouldPlay) {
 function skipBrokenTrack() {
   failedTracks.add(currentTrackIndex);
   if (failedTracks.size >= PLAYLIST.length) {
-    updateMusicUI(false, "Playlist indisponível nesta rede");
+    updateMusicUI(false, "unavailable");
     return;
   }
   loadTrack(currentTrackIndex + 1, true);
@@ -213,9 +500,9 @@ window.onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
         const YTState = window.YT.PlayerState;
         if (event.data === YTState.PLAYING) {
           failedTracks.clear();
-          updateMusicUI(true, "🤠 Tocando no saloon");
+          updateMusicUI(true, "playing");
         } else if (event.data === YTState.PAUSED) {
-          updateMusicUI(false, "⏸️ Vitrola pausada");
+          updateMusicUI(false, "paused");
         } else if (event.data === YTState.ENDED) {
           loadTrack(currentTrackIndex + 1, true);
         }
@@ -247,36 +534,28 @@ function runDraw() {
   const suspenseMs = prefersReducedMotion ? 60 : 620;
 
   shell.dataset.state = "drawing";
-  shuffleWord.textContent = SHUFFLE_LINES[Math.floor(randomUnit() * SHUFFLE_LINES.length)];
+  const shufflePool = t().shuffle;
+  activeShuffleIndex = Math.floor(randomUnit() * shufflePool.length);
+  shuffleWord.textContent = shufflePool[activeShuffleIndex];
 
   window.setTimeout(() => {
     const fezTerere = randomUnit() < SIM_WEIGHT;
 
     if (fezTerere) {
       counts.sim += 1;
-      const verdict = pickVerdict(SIM_VERDICTS);
+      const idx = pickVerdictIndex("sim");
+      lastOutcome = { type: "sim", index: idx };
       shell.dataset.state = "sim";
       portraitImg.src = "./assets/renan-sim.jpg";
-      portraitImg.alt = "KING ROP de chapéu texano segurando uma guampa de tereré gelada";
-      portraitCaption.textContent = verdict.caption;
-      verdictStamp.textContent = verdict.stamp;
-      verdictCopy.textContent = verdict.copy;
     } else {
       counts.nao += 1;
-      const verdict = pickVerdict(NAO_VERDICTS);
+      const idx = pickVerdictIndex("nao");
+      lastOutcome = { type: "nao", index: idx };
       shell.dataset.state = "nao";
       portraitImg.src = "./assets/renan-nao.jpg";
-      portraitImg.alt = "KING ROP cabisbaixo com a cuia de tereré vazia emborcada na mesa";
-      portraitCaption.textContent = verdict.caption;
-      verdictStamp.textContent = verdict.stamp;
-      verdictCopy.textContent = verdict.copy;
     }
 
-    verdictStamp.hidden = false;
-    sessionTally.hidden = false;
-    sessionTally.textContent = `🧉 Placar desta sessão: ${counts.sim} sim e ${counts.nao} não.`;
-
-    drawButton.textContent = "Sortear de novo 🎲";
+    renderOutcomeOrIdle();
     drawButton.disabled = false;
     isDrawing = false;
   }, suspenseMs);
@@ -284,10 +563,17 @@ function runDraw() {
 
 drawButton.addEventListener("click", runDraw);
 
+langButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    applyLanguage(btn.dataset.lang, true);
+  });
+});
+
 playPauseBtn.addEventListener("click", () => {
   if (!playerReady || !ytPlayer) {
     pendingAutoplay = true;
-    trackStatus.textContent = "Carregando vitrola...";
+    musicStateKey = "loading";
+    renderMusicStatus();
     return;
   }
   if (isPlaying) {
@@ -311,8 +597,9 @@ trackSelect.addEventListener("change", (event) => {
 toggleVideoBtn.addEventListener("click", () => {
   const open = playerDrawer.classList.toggle("is-open");
   toggleVideoBtn.setAttribute("aria-expanded", String(open));
-  toggleVideoBtn.textContent = open ? "Ocultar clipe" : "Mostrar clipe";
+  toggleVideoBtn.textContent = open ? t().hideVideo : t().showVideo;
 });
 
 populatePlaylistSelect();
+applyLanguage(currentLang, false);
 injectYouTubeAPI();
