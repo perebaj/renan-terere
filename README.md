@@ -1,6 +1,6 @@
-# Renan Peliçari já fez o tereré dele hoje?
+# KING ROP já fez o tereré dele hoje?
 
-Site estático que sorteia se o Renan Peliçari já preparou o tereré do dia com probabilidade calibrada em **60% para sim** e **40% para não**, acompanhado de uma vitrola de country texano.
+Site estático que consulta o destino para saber se o KING ROP já preparou o tereré do dia, acompanhado de uma vitrola de country texano.
 
 ## Por que é estático e exige o primeiro clique
 

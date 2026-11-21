@@ -18,8 +18,8 @@ const SIM_VERDICTS = [
   },
   {
     stamp: "Sim, já rolou tereré hoje.",
-    copy: "A água gelada desceu antes mesmo do sol esquentar no Texas. Os 60% de probabilidade apenas confirmaram a rotina.",
-    caption: "Renan Peliçari devidamente hidratado no comando do saloon.",
+    copy: "A água gelada desceu antes mesmo do sol esquentar no Texas. Mais um dia normal na rotina da fronteira.",
+    caption: "KING ROP devidamente hidratado no comando do saloon.",
   },
   {
     stamp: "Com certeza já fez.",
@@ -31,7 +31,7 @@ const SIM_VERDICTS = [
 const NAO_VERDICTS = [
   {
     stamp: "Ainda não saiu o tereré hoje.",
-    copy: "Guampa emborcada na mesa, bomba seca e silêncio pesado no escritório. Você acaba de cair nos 40% mais tristes da estatística.",
+    copy: "Guampa emborcada na mesa, bomba seca e silêncio pesado no escritório. Nem o saloon acreditou nessa cena.",
     caption: "Olhar distante de quem ainda não ouviu a térmica abrir hoje.",
   },
   {
@@ -235,7 +235,7 @@ function runDraw() {
       const verdict = pickVerdict(SIM_VERDICTS);
       shell.dataset.state = "sim";
       portraitImg.src = "./assets/renan-sim.jpg";
-      portraitImg.alt = "Renan Peliçari de chapéu texano segurando uma guampa de tereré gelada";
+      portraitImg.alt = "KING ROP de chapéu texano segurando uma guampa de tereré gelada";
       portraitCaption.textContent = verdict.caption;
       verdictStamp.textContent = verdict.stamp;
       verdictCopy.textContent = verdict.copy;
@@ -244,7 +244,7 @@ function runDraw() {
       const verdict = pickVerdict(NAO_VERDICTS);
       shell.dataset.state = "nao";
       portraitImg.src = "./assets/renan-nao.jpg";
-      portraitImg.alt = "Renan Peliçari cabisbaixo com a cuia de tereré vazia emborcada na mesa";
+      portraitImg.alt = "KING ROP cabisbaixo com a cuia de tereré vazia emborcada na mesa";
       portraitCaption.textContent = verdict.caption;
       verdictStamp.textContent = verdict.stamp;
       verdictCopy.textContent = verdict.copy;
@@ -252,7 +252,7 @@ function runDraw() {
 
     verdictStamp.hidden = false;
     sessionTally.hidden = false;
-    sessionTally.textContent = `Sorteios nesta sessão: ${counts.sim} sim e ${counts.nao} não (chance real calibrada em 60% para sim).`;
+    sessionTally.textContent = `Sorteios nesta sessão: ${counts.sim} sim e ${counts.nao} não.`;
 
     drawButton.textContent = "Sortear de novo";
     drawButton.disabled = false;
